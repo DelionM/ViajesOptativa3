@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Iniciar Sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styleLogin.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+</head>
+<body class="bg-light d-flex align-items-center" style="height: 100vh;">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-4">Iniciar Sesión</h3>
+            <form>
+              <div class="mb-3">
+                <label for="username" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <div class="d-grid">
+                <button type="button" class="btn btn-primary" id="loginButton">Iniciar Sesión</button> <br>
+                <button type="button" class="btn btn-primary" id="inicio">Regresar</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('loginButton').addEventListener('click', function() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      console.log('Usuario:', username);
+      console.log('Contraseña:', password);
+        if (username === 'admin' && password === 'admin') {
+            window.location.href = 'admin.html';
+        }
+        else
+        // alert("inicio de sesion incorrecto 😥")
+
+        // Mostrar SweetAlert2 para confirmar la eliminación
+
+        // aqui le puedo meter una funcion con un listener para que me haga eso
+        Swal.fire({
+            title: "Usuario o contraseña incorrecto 😥",
+            icon: "warning",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ok 👌",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Código para eliminar la película
+                newRow.remove();
+                Swal.fire("¡Eliminado!", "Producto Eliminado", "success");
+            }
+        });
+
+    
+    });
+    document.getElementById('inicio').addEventListener('click', function() {
+        window.location.href = 'index.html';
+
+    })
+  </script>
+</body>
+</html>
